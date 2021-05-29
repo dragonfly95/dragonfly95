@@ -13,3 +13,18 @@ ADD ${JAR_FILE} app.war
 
 EXPOSE 5000
 ENTRYPOINT ["java","-jar","/app.war"]
+
+
+
+
+eb init --interactive
+eb create graphwork2
+eb deploy
+
+eb open
+aws elasticbeanstalk terminate-environment --environment-name dragonfly952
+aws elasticbeanstalk terminate-environment --environment-name Graphworksproductionenv-env
+
+eb profile --profile graphworks
+
+aws configure list
